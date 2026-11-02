@@ -1,0 +1,46 @@
+{
+  "name": "meeting-recorder-v3",
+  "version": "3.0.0",
+  "description": "Local-first desktop meeting recorder",
+  "main": "main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win nsis",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "openai": "^6.0.0"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.local.meetingrecorder",
+    "productName": "Meeting Recorder V3",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "README.md",
+      "package.json",
+      "processing.js",
+      "tests/**"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "directories": {
+      "output": "dist"
+    },
+    "asarUnpack": [
+      "**/ffmpeg-static/**"
+    ]
+  },
+  "optionalDependencies": {
+    "ffmpeg-static": "^5.2.0"
+  }
+}
