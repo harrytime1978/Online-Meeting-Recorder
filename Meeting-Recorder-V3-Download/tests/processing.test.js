@@ -1,0 +1,1 @@
+const test=require('node:test');const assert=require('node:assert/strict');const {timeOf,transcriptParts}=require('../processing');test('segment time offsets',()=>assert.equal(timeOf(3),1440));test('text joins',()=>assert.equal(transcriptParts([{text:'one'},{text:'two'}]),'one\ntwo'));
